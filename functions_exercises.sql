@@ -24,7 +24,8 @@ WHERE last_name LIKE 'E%'
 ORDER BY emp_no;
 SELECT emp_no, first_name, last_name
 FROM employees
-WHERE last_name LIKE 'E%' ORDER BY emp_no desc;
+WHERE last_name LIKE 'E%'
+ORDER BY emp_no desc;
 SELECT emp_no, first_name, last_name, hire_date
 FROM employees
 WHERE hire_date >= '1990-01-01' AND hire_date <= '1999-12-31';
@@ -40,13 +41,13 @@ WHERE (first_name = 'Irena' OR first_name = 'Vidya' OR first_name = 'Maya') AND 
 SELECT emp_no, first_name, last_name
 FROM employees
 WHERE (last_name LIKE 'E%' OR last_name LIKE '%E');
-SELECT emp_no, first_name, last_name
+SELECT emp_no, CONCAT(first_name, ' ', last_name)
 FROM employees
 WHERE last_name LIKE 'E%E';
 SELECT emp_no, first_name, last_name, hire_date
 FROM employees
 WHERE (hire_date >= '1990-01-01' AND hire_date <= '1999-12-31') AND birth_date LIKE '%-12-25';
-SELECT emp_no, first_name, last_name, hire_date, birth_date
+SELECT emp_no, first_name, last_name, datediff(curdate(), hire_date), hire_date, birth_date
 FROM employees
 WHERE (hire_date >= '1990-01-01' AND hire_date <= '1999-12-31') AND birth_date LIKE '%-12-25'
 ORDER BY birth_date ASC, hire_date DESC;
